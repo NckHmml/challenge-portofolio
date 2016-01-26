@@ -4,4 +4,4 @@
 
 global.database = new Database();
 var projectController = new ProjectController(app);
-app.listen(80);
+app.listen(process.env.PORT || 8080);
