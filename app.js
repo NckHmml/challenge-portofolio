@@ -1,7 +1,11 @@
-﻿var app = require("express")(),
+﻿var app = require("express").createServer(),
     Database = require("./database.js"),
     ProjectController = require("./controllers/ProjectApiController.js");
 
 global.database = new Database();
 var projectController = new ProjectController(app);
-app.listen(process.env.PORT || 8080);
+
+var port = process.env.PORT || 8080;
+app.listen(port, function () {
+    console.log("node started");
+});
