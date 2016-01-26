@@ -1,4 +1,4 @@
-﻿var app = require("express").createServer(),
+﻿var app = require("express")(),
     Database = require("./database.js"),
     ProjectController = require("./controllers/ProjectApiController.js");
 
