@@ -4,4 +4,4 @@
 
 global.database = new Database();
 var projectController = new ProjectController(app);
-app.listen(8080);
+app.listen(80);
