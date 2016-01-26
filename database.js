@@ -12,6 +12,26 @@ var Database = function () {
             callback(rows);
         });
     };
+
+    this.GetProject = function (id, callback) {
+        db.get("SELECT * FROM projects WHERE id=?", id, function (err, row) {
+            callback(row);
+        });
+    };
+
+    this.AddProject = function (project) {
+        db.run("INSERT INTO projects (url, title, description) VALUES ($url, $title, $description)", {
+            $url: project.url,
+            $title: project.title,
+            $description: project.description
+        });
+    };
+
+    this.DeleteProject = function (id, callback) {
+        db.run("DELETE FROM projects WHERE id=?", id, function () {
+            callback(this);
+        });
+    };
 };
 
 module.exports = Database;
