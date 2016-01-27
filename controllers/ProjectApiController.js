@@ -34,8 +34,8 @@ var DeleteProject = function delete_project(req, res) {
     var id = req.params.id;
     if (!id)
         return res.sendStatus(400);
+
     global.database.DeleteProject(id, function (result) {
-        console.log(result);
         if (result.changes == 0)
             return res.sendStatus(404);
         res.json([]);
