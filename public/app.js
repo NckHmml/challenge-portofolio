@@ -12,12 +12,12 @@ app.factory("projects", ["$http", function ($http) {
 
 app.controller("MainController", ["$scope", "projects", function ($scope, projects) {
     projects.success(function (data) {
-        $scope.projects = data;
-        $scope.remove = function (project) {
-            var i = $scope.projects.indexOf(project);
-            $scope.projects.splice(i, 1);
-        }
+        $scope.projects = data;        
     });
+    $scope.remove = function (project) {
+        var i = $scope.projects.indexOf(project);
+        $scope.projects.splice(i, 1);
+    }
 }]);
 
 app.directive("myPortofolio", function () {
