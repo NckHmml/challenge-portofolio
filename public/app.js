@@ -1,7 +1,6 @@
 ﻿var app = angular.module("portofolioApp", []);
 
 app.factory("projects", ["$http", function ($http) {
-    console.log("HELLO");
     return $http.get("/api/projects")
       .success(function (data) {
           return data;
@@ -12,11 +11,11 @@ app.factory("projects", ["$http", function ($http) {
 }]);
 
 app.controller("MainController", ["$scope", "projects", function ($scope, projects) {
-    projects.success(function (data) {        
+    projects.success(function (data) {
         $scope.projects = data;
         $scope.remove = function (project) {
-            console.log(project);
-            $scope.projects.pop(project);
+            var i = $scope.projects.indexOf(project);
+            $scope.projects.splice(i, 1);
         }
     });
 }]);
